@@ -1,19 +1,24 @@
-vim.cmd([[
-  highlight Error guibg=red
-  highlight link Warning Error
-  set expandtab
-  set tabstop=2
-  set softtabstop=2
-  set shiftwidth=2
-  set smarttab
-  set number
-  set relativenumber
-]])
-
+-- Options
 vim.g.mapleader = " "
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.clipboard:append("unnamedplus")
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+vim.opt.wrap = true
+vim.opt.tabstop = 2
+vim.g.material_style = "deep ocean"
+vim.api.nvim_set_keymap("n", "<Leader>|", ":vsplit<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>-", ":hsplit<CR>", { noremap = true })
+vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true })
+vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true })
+vim.api.nvim_set_keymap("v", "<S-j>", ":move '>+1<CR>gv-gv", {noremap = true })
+vim.api.nvim_set_keymap("v", "<S-k>", ":move '<-1<CR>gv-gv", {noremap = true })
 
--- Install Lazy package manager
 
+-- Installing lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
@@ -21,17 +26,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end
-
 vim.opt.rtp:prepend(lazypath)
-
 require("lazy").setup("plugins")
-require'lspconfig'.lua_ls.setup{}
-require("mason").setup()
-require("cmp").setup()
-require('lualine').setup()
-require('which-key').setup()
-require("ibl").setup()

@@ -3,18 +3,7 @@ return {
     build = ":TSUpdate",
     config = function()
         require("nvim-treesitter.configs").setup({
-            ensure_installed = {
-                "bash",
-                "dockerfile",
-                "javascript",
-                "json",
-                "lua",
-                "python",
-                "toml",
-                "typescript",
-                "yaml",
-                "bicep",
-            },
+            auto_install = true,
             highlight = {
                 enable = true,
             },
