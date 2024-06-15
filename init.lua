@@ -16,6 +16,12 @@ vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true })
 vim.api.nvim_set_keymap("v", "<S-j>", ":move '>+1<CR>gv-gv", {noremap = true })
 vim.api.nvim_set_keymap("v", "<S-k>", ":move '<-1<CR>gv-gv", {noremap = true })
 
+-- Navigate to next and previous buffers
+vim.api.nvim_set_keymap("n", "<leader>bn", ":bnext<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>bp", ":bprevious<CR>", { noremap = true })
+
+-- Close current buffer
+vim.api.nvim_set_keymap("n", "<leader>bk", ":bd<CR>", { noremap = true })
 
 -- Installing lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
