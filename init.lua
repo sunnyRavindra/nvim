@@ -9,7 +9,6 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.wrap = true
 vim.opt.tabstop = 2
--- vim.g.material_style = "deep ocean"
 vim.api.nvim_set_keymap("n", "<Leader>|", ":vsplit<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>-", ":hsplit<CR>", { noremap = true })
 vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true })
