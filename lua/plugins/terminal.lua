@@ -3,12 +3,12 @@ return {
   config = function()
     require("toggleterm").setup{
       size = 20,
-      open_mapping = [[<c-\>]],
       direction = 'float',
       auto_scroll = true,
+      open_mapping = [[<c-\>]],
       float_opts = {
         border = 'curved',
-        title_pos =  'center' 
+        title_pos =  'center'
       },
     }
   end

@@ -23,6 +23,9 @@ vim.api.nvim_set_keymap("n", "<leader>bp", ":bprevious<CR>", { noremap = true })
 -- Close current buffer
 vim.api.nvim_set_keymap("n", "<leader>bk", ":bd<CR>", { noremap = true })
 
+
+vim.api.nvim_set_keymap("n", "<leader>pp", ":Telescope neovim-project discover<CR>", { noremap = true })
+
 -- Installing lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
