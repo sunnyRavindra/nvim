@@ -2,6 +2,7 @@ return {
   'akinsho/toggleterm.nvim', version = "*", config = true,
   config = function()
     require("toggleterm").setup{
+      autochdir = false,
       size = 20,
       direction = 'float',
       auto_scroll = true,
