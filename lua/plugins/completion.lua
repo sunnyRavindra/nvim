@@ -57,16 +57,6 @@ return {
       local t = ls.text_node
       local i = ls.insert_node
 
-      all = {
-        s("sample", { t{"line one", "line two", "line three"} }),
-      }
-
-      lua = {
-        s("trigger", {
-          t({"After expanding, the cursor is here ->"}), i(1),
-          t({"", "After jumping forward once, cursor is here ->"}), i(2),
-          t({"", "After jumping once more, the snippet is exited there ->"}), i(0),
-        })    }
 
       -- Keymaps
       vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
@@ -79,10 +69,8 @@ return {
       end, {silent = true})
 
       -- Snippets
-      ls.add_snippets("all", all)
-      ls.add_snippets("lua", lua)
-      require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
-
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/lua/snippets" } })
+      require('luasnip.loaders.from_lua').load({paths = "~/.config/nvim/lua/snippets"})
     end
   }
 }
