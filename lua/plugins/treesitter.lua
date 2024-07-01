@@ -6,7 +6,10 @@ return {
       auto_install = true,
       highlight = {
         enable = true,
+        disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
+        additional_vim_regex_highlighting = {'org'}, 
       },
+      ensure_installed = {'org'},
       indent = {
         enable = true,
       },

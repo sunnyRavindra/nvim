@@ -47,3 +47,39 @@ ls.add_snippets('all', {
     }))
 })
 
+ls.add_snippets('all', {
+  s("-task azure devops pipeline", 
+    t({
+"- task: AzurePowerShell@5",
+"  inputs:",
+"    azureSubscription:",
+"    ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Script Type. Default: FilePath.",
+"    ScriptPath: # string. Optional. Use when ScriptType = FilePath. Script Path. ",
+"    Inline: # string. Optional. Use when ScriptType = InlineScript. Inline Script. ",
+"    ScriptArguments: # string. Optional. Use when ScriptType = FilePath. Script Arguments. ",
+"    errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.",
+"    FailOnStandardError: false # boolean. Fail on Standard Error. Default: false.",
+"    azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Alias: TargetAzurePs. Azure PowerShell Version. Default: OtherVersion.",
+"    preferredAzurePowerShellVersion: # string. Alias: CustomTargetAzurePs. Required when TargetAzurePs = OtherVersion. Preferred Azure PowerShell Version. ",
+"    pwsh: false # boolean. Use PowerShell Core. Default: false.",
+"    validateScriptSignature: false # boolean. Optional. Use when ScriptType = FilePath. Validate script signature. Default: false.",
+"    workingDirectory: # string. Working Directory."
+    }))
+})
+
+ls.add_snippets('all', {
+  s("checkout self", 
+     t({
+"steps:",
+ "- checkout: none",
+ "- checkout: self",
+ "  clean: true",
+ "  fetchDepth: 0",
+ "  lfs: false  # whether to download Git-LFS files",
+ "  submodules: true | recursive",
+ "  path: string",
+ "  persistCredentials: true",
+ "  fetchTags: false"
+     }))
+ })
+
